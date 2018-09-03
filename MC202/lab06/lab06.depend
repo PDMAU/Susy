@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1535948134 source:c:\users\maurilio\desktop\susy\mc202\lab06\main.c
+	<stdio.h>
+	<stdlib.h>
+	"universidade.h"
+	<string.h>
+
+1535941704 c:\users\maurilio\desktop\susy\mc202\lab06\universidade.h
+
+1535947807 source:c:\users\maurilio\desktop\susy\mc202\lab06\universidade.c
+	"universidade.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,5 +1,7 @@
 #include "universidade.h"
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /*
     Cria um registro professor dinamicamente.
@@ -14,7 +16,7 @@
 p_professor criarProfessor(char nome[], char sobrenome[], double salario, char disciplina[]){
     p_professor professor = malloc(sizeof(Professor));
     strcpy(professor->nome, nome);
-    strcpy(professor->sobrenome, sobrenome);  
+    strcpy(professor->sobrenome, sobrenome);
     strcpy(professor->disciplina, disciplina);
     professor->salario = salario;
     return professor;
@@ -26,7 +28,7 @@ p_professor criarProfessor(char nome[], char sobrenome[], double salario, char d
     Entrada: professor: ponteiro para registro professor
 */
 void destruirProfessor(p_professor professor){
-    free(p_professor);
+    free(professor);
 }
 
 /*
@@ -39,10 +41,11 @@ void destruirProfessor(p_professor professor){
     Saida: retorna um ponteiro para registro aluno alocado
 */
 p_aluno criarAluno(char nome[], char sobrenome[]){
-    p_aluno aluno = malloc(sizeof(aluno));
+    p_aluno aluno = malloc(sizeof(Aluno));
     strcpy(aluno->nome, nome);
-    strcpy(aluno->sobrenome, sobrenome); 
-    return aluno;    
+    strcpy(aluno->sobrenome, sobrenome);
+    (aluno->qtd_disciplinas) = 0;
+    return aluno;
 }
 
 /*
@@ -80,31 +83,25 @@ void destruirAluno(p_aluno aluno){
            nota_max: maior nota entre uma turma de alunos
 
 */
-double pegarNotaDoAlunoNaDisclina(p_aluno aluno, char disciplina[]){
-    int i;
-    for(i=0; i < aluno->qtd_disciplinas; i++){
-        if(strcmp(p_aluno->disciplina[i],disciplina) == 0)
-            return aluno->notas[i];
-    }
-}
 void obterNotasExtremas(p_aluno alunos[], int qtd_alunos, char disciplina[], double *nota_min, double *nota_max){
-    int i;
+    int i,j;
     double nota;
-    if(qtd_alunos>1){
-        nota_min = malloc(sizeof(double));
-        nota_max = malloc(sizeof(double));
-        *nota_min = pegarNotaDoAlunoNaDisclina(alunos[0], disciplina); 
-        *nota_max = pegarNotaDoAlunoNaDisclina(alunos[0], disciplina);        
-        for(i=1; i < qtd_alunos; i++){            
-            nota = pegarNotaDoAlunoNaDisclina(alunos[i], disciplina);
-            if(nota > *nota_max){
-                *nota_max = nota;
-            }else if(nota < *nota_min){
-                *nota_min = nota;
+    *nota_min = 11;
+    *nota_max = -1;
+    for(i=0; i < qtd_alunos; i++){
+        for(j=0;j < alunos[i]->qtd_disciplinas; j++){
+            if(strcmp(alunos[i]->disciplinas[j],disciplina) ==0){
+                nota = alunos[i]->notas[j];
             }
-
+        }
+        if(*nota_max < nota){
+            *nota_max = nota;
+        }
+        else if(nota < *nota_min){
+            *nota_min = nota;
         }
     }
+
 }
 
 /*
@@ -117,12 +114,12 @@ void obterNotasExtremas(p_aluno alunos[], int qtd_alunos, char disciplina[], dou
 void reajusteSalario(p_professor professor, double media_notas){
     if(media_notas == 10){
         professor->salario += professor->salario*0.15;
-    }else if(media_notas =>9){
+    }else if(media_notas >=9){
         professor->salario += professor->salario*0.10;
-    }else if(media_notas => 8.5){
+    }else if(media_notas >= 8.5){
         professor->salario += professor->salario*0.05;
     }
-    
+
 }
 
 /*
@@ -131,6 +128,10 @@ void reajusteSalario(p_professor professor, double media_notas){
     Entrada: professor: ponteiro para registro professor
 */
 void imprimirProfessor(p_professor professor){
-    printf("%s %s %f", professor->nome, professor->sobrenome, professor->salario);
+    printf("%s %s %.2f\n", professor->nome, professor->sobrenome, professor->salario);
+}
+
+int retornaUm(){
+    return 1;
 }
 

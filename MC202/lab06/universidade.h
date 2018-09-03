@@ -98,5 +98,7 @@ void reajusteSalario(p_professor professor, double media_notas);
 */
 void imprimirProfessor(p_professor professor);
 
+int retornaUm();
+
 #endif /* UNIVERSIDADE_H */
 
