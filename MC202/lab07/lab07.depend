@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1537146438 source:/home/maurilio/Documentos/Susy/MC202/lab07/lab07.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
