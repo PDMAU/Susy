@@ -5,49 +5,48 @@
 
 
 int main(){
-      int **pessoas;
-      int  i, m, n, u, v;
+      int **pessoas, i, m, n, u, v;
       p_grafo grafo;
-      scanf("%d %d",&n,&m);
+      scanf("%d %d",n,m);
       grafo = criar_grafo(n);
       pessoas = (int **)malloc(sizeof(int *)*n);
       for(i =0; i < n; i++){
         pessoas[i] = (int *)malloc(sizeof(int)*2);
-        scanf("%d", &pessoas[i][0]);
+        scanf("%d", pessoas[i][0]);
         pessoas[i][1] = 0;
       }
 
       for(i = 0; i < m; i++){
-        scanf("%d %d",&u,&v);
+        scanf("%d %d",u,v);
         insere_aresta(grafo, u, v);
-
       }
-      printf("God \n");
 
-      calcularTriangulos(grafo, pessoas, n);
+      calcularTriangulos(grafo, pessoas);
 
       for(i =0; i < n; i++){
-        //if(pessoas[i][1] != 1){
+        if(pessoas[i][0] == 1){
           printf("%d\n", i);
-        //}
+        }
       }
+
+      return 0;
 }
 
 
-void calcularTriangulos(p_grafo grafo, int **pessoas, int n){
+void calcularTriangulos(p_grafo grafo, int **pessoas){
 	int f;
-  p_no g, h;
+  p_no *g, *h;
 
 	for(f = 0; f < n; f++){
-		for(g = grafo->adjacencia[f]; g != NULL; g = g->prox){
+		for(g = grafo[f]->adjacencia; g != NULL; g = g->prox){
 
-			for(h =  grafo->adjacencia[g->v]; h != NULL; h = h->prox){
+			for(h = grafo[g->v]->adjacencia; h != NULL; h = h->prox){
 				if(tem_aresta(grafo, f, h->v)){
-					if(estaEntediado(grafo->adjacencia[f]->v,g->v,h->v)){
-                        pessoas[grafo->adjacencia[f]->v][1] = 1;
-                        pessoas[g->v][1] = 1;
-                        pessoas[h->v][1] = 1;
-                  }
+					if(estaEntediado(grafo[f]->n,g->v,h->v)){
+            pessoas[grafo[f]->n][1] = 1;
+            pessoas[g->v][1] = 1;
+            pessoas[h->v][1] = 1;
+          }
 				}
 			}
 		}

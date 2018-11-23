@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1542931356 source:/home/cc2018-fra/ra203648/Susy/MC202/lab14/grafo.c
+	<stdio.h>
+	<stdlib.h>
+	"grafo.h"
+
+1542931356 /home/cc2018-fra/ra203648/Susy/MC202/lab14/grafo.h
+
+1543011714 source:/home/cc2018-fra/ra203648/Susy/MC202/lab14/lab14.c
+	<stdio.h>
+	<stdlib.h>
+	"grafo.h"
+
