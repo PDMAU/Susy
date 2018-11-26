@@ -1,3 +1,7 @@
+/*
+Nome: Maurilio dos Santos Gonçalves 
+RA:203648
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "grafo.h"

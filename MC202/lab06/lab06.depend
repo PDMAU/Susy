@@ -13,3 +13,17 @@
 	<stdio.h>
 	<stdlib.h>
 
+1543203926 source:c:\users\mauri\desktop\susy\mc202\lab06\main.c
+	<stdio.h>
+	<stdlib.h>
+	"universidade.h"
+	<string.h>
+
+1543071231 c:\users\mauri\desktop\susy\mc202\lab06\universidade.h
+
+1543204026 source:c:\users\mauri\desktop\susy\mc202\lab06\universidade.c
+	"universidade.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+

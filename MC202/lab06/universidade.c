@@ -13,7 +13,7 @@
 
     Sa�da: retorna um ponteiro para registro professor alocado
 */
-p_professor criarProfessor(char nome[], char sobrenome[], double salario, char disciplina[]){
+p_professor criarProfessor(char nome[], char sobrenome[], double salario, char disciplina[]) {
     p_professor professor = malloc(sizeof(Professor));
     strcpy(professor->nome, nome);
     strcpy(professor->sobrenome, sobrenome);
@@ -27,7 +27,7 @@ p_professor criarProfessor(char nome[], char sobrenome[], double salario, char d
 
     Entrada: professor: ponteiro para registro professor
 */
-void destruirProfessor(p_professor professor){
+void destruirProfessor(p_professor professor) {
     free(professor);
 }
 
@@ -40,7 +40,7 @@ void destruirProfessor(p_professor professor){
 
     Saida: retorna um ponteiro para registro aluno alocado
 */
-p_aluno criarAluno(char nome[], char sobrenome[]){
+p_aluno criarAluno(char nome[], char sobrenome[]) {
     p_aluno aluno = malloc(sizeof(Aluno));
     strcpy(aluno->nome, nome);
     strcpy(aluno->sobrenome, sobrenome);
@@ -55,7 +55,7 @@ p_aluno criarAluno(char nome[], char sobrenome[]){
              disciplina: c�digo da disciplina
              nota: nota correspondente
 */
-void adicionarDisciplina(p_aluno aluno, char disciplina[], double nota){
+void adicionarDisciplina(p_aluno aluno, char disciplina[], double nota) {
     strcpy(aluno->disciplinas[aluno->qtd_disciplinas],disciplina);
     aluno->notas[aluno->qtd_disciplinas] = nota;
     (aluno->qtd_disciplinas)++;
@@ -66,7 +66,7 @@ void adicionarDisciplina(p_aluno aluno, char disciplina[], double nota){
 
    Entrada: aluno: ponteiro para registro aluno
 */
-void destruirAluno(p_aluno aluno){
+void destruirAluno(p_aluno aluno) {
     free(aluno);
 }
 
@@ -83,24 +83,30 @@ void destruirAluno(p_aluno aluno){
            nota_max: maior nota entre uma turma de alunos
 
 */
-void obterNotasExtremas(p_aluno alunos[], int qtd_alunos, char disciplina[], double *nota_min, double *nota_max){
-    int i,j;
+void obterNotasExtremas(p_aluno alunos[], int qtd_alunos, char disciplina[], double *nota_min, double *nota_max) {
+    int i,j, achou =0;
     double nota;
-    *nota_min = 11;
-    *nota_max = -1;
-    for(i=0; i < qtd_alunos; i++){
-        for(j=0;j < alunos[i]->qtd_disciplinas; j++){
-            if(strcmp(alunos[i]->disciplinas[j],disciplina) ==0){
+
+    double aux_min = 10;
+    double aux_max = 0;
+    for(i=0; i < qtd_alunos; i++) {
+        for(j=0; j < alunos[i]->qtd_disciplinas; j++) {
+            if(strcmp(alunos[i]->disciplinas[j],disciplina) == 0) {
                 nota = alunos[i]->notas[j];
+                achou =1;
             }
         }
-        if(*nota_max < nota){
-            *nota_max = nota;
-        }
-        else if(nota < *nota_min){
-            *nota_min = nota;
+        if(achou!=0){
+            if(aux_max < nota) {
+                aux_max = nota;
+            } else if(nota < aux_min) {
+                aux_min = nota;
+            }
+            achou = 0;
         }
     }
+    *nota_min = aux_min;
+    *nota_max = aux_max;
 
 }
 
@@ -111,12 +117,12 @@ void obterNotasExtremas(p_aluno alunos[], int qtd_alunos, char disciplina[], dou
              media_notas: m�dia entre as notas m�xima e m�nima dos alunos de
              uma determinada disciplina
 */
-void reajusteSalario(p_professor professor, double media_notas){
-    if(media_notas == 10){
+void reajusteSalario(p_professor professor, double media_notas) {
+    if(media_notas == 10) {
         professor->salario += professor->salario*0.15;
-    }else if(media_notas >=9){
+    } else if(media_notas >=9) {
         professor->salario += professor->salario*0.10;
-    }else if(media_notas >= 8.5){
+    } else if(media_notas >= 8.5) {
         professor->salario += professor->salario*0.05;
     }
 
@@ -127,11 +133,11 @@ void reajusteSalario(p_professor professor, double media_notas){
 
     Entrada: professor: ponteiro para registro professor
 */
-void imprimirProfessor(p_professor professor){
+void imprimirProfessor(p_professor professor) {
     printf("%s %s %.2f\n", professor->nome, professor->sobrenome, professor->salario);
 }
 
-int retornaUm(){
+int retornaUm() {
     return 1;
 }
 

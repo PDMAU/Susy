@@ -1,3 +1,7 @@
+/*
+Nome: Maurilio dos Santos Gonçalves 
+RA:203648
+*/
 typedef struct No {
     int v;
     struct No *prox;
