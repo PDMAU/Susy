@@ -84,7 +84,7 @@ void destruirAluno(p_aluno aluno) {
 
 */
 void obterNotasExtremas(p_aluno alunos[], int qtd_alunos, char disciplina[], double *nota_min, double *nota_max) {
-    int i,j, achou =0;
+    int i,j;
     double nota;
 
     double aux_min = 10;
@@ -93,16 +93,12 @@ void obterNotasExtremas(p_aluno alunos[], int qtd_alunos, char disciplina[], dou
         for(j=0; j < alunos[i]->qtd_disciplinas; j++) {
             if(strcmp(alunos[i]->disciplinas[j],disciplina) == 0) {
                 nota = alunos[i]->notas[j];
-                achou =1;
-            }
-        }
-        if(achou!=0){
-            if(aux_max < nota) {
+                if(aux_max < nota) {
                 aux_max = nota;
-            } else if(nota < aux_min) {
-                aux_min = nota;
+                }if(nota < aux_min) {
+                    aux_min = nota;
+                }
             }
-            achou = 0;
         }
     }
     *nota_min = aux_min;
