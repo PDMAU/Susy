@@ -12,11 +12,12 @@ typedef Autor *p_autor;
 typedef struct
 {
     p_autor vetor[MAX];
+    int numeroArtigos;
 } Hash;
 
 typedef Hash *p_hash;
 
-p_hash criar_hash();
+p_hash criar_hash(int numeroArtigos);
 
 void destruir_hash(p_hash t);
 
