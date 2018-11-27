@@ -4,7 +4,7 @@
 typedef struct
 {
     char nome[17];
-    int *artigos;
+    unsigned int *artigos;
 } Autor;
 
 typedef Autor *p_autor;
