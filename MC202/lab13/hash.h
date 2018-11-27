@@ -1,17 +1,17 @@
-#define MAX 1783
+#define MAX 2048
+
 
 typedef struct
 {
-    char chave[10];
-    int dado;
-    No *prox;
-} No;
+    char nome[17];
+    int *artigos;
+} Autor;
 
-typedef No *p_no;
+typedef Autor *p_autor;
 
 typedef struct
 {
-    p_no vetor[MAX];
+    p_autor vetor[MAX];
 } Hash;
 
 typedef Hash *p_hash;
@@ -20,8 +20,6 @@ p_hash criar_hash();
 
 void destruir_hash(p_hash t);
 
-void inserir(p_hash t, char *chave, int dado);
+void inserir(p_hash t, char *chave, p_autor dado);
 
-void remover(p_hash t, char *chave);
-
-p_no buscar(p_hash t, char *chave);
+p_autor buscar(p_hash t, char *chave);
