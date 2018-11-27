@@ -21,7 +21,7 @@ int hashSecundario(char *chave) {
     return n;
 }
 
-p_hash criar_hash(){
+p_hash criar_hash(int numeroArtigos){
     int i;
     p_hash hash = malloc(sizeof(Hash));
     if(hash == NULL)
@@ -29,6 +29,7 @@ p_hash criar_hash(){
     for(i=0; i < MAX; i++){
         hash->vetor[i] = NULL;
     }
+    hash->numeroArtigos = numeroArtigos;
     return hash;
 }
 
@@ -38,7 +39,7 @@ void inserir(p_hash t, char *chave, p_autor dado){
         t->vetor[n] = dado;
     }else{
         while(t->vetor[n] != NULL){
-            n += hashSecundario(chave) % MAX;
+            n += hashSecundario(chave) % MAX;   
         }
         t->vetor[n] = dado;
     }    
