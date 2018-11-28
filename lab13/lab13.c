@@ -1,4 +1,4 @@
-#include <hash.h>
+#include "hash.h"
 
 int haColaboracao(p_hash tabela, char* nomeAutor1, char* nomeAutor2){
     int i;

@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1543362831 source:/home/cc2018-fra/ra203648/lab13/hash.c
+	"hash.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1543362434 /home/cc2018-fra/ra203648/lab13/hash.h
+
+1543362913 source:/home/cc2018-fra/ra203648/lab13/main.c
+	<stdio.h>
+	<stdlib.h>
+	"hash.h"
+
