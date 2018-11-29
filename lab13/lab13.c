@@ -1,4 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "hash.h"
+#define MAX 2048
 
 int haColaboracao(p_hash tabela, char* nomeAutor1, char* nomeAutor2){
     int i;
@@ -6,8 +11,11 @@ int haColaboracao(p_hash tabela, char* nomeAutor1, char* nomeAutor2){
     autor1 = buscar(tabela, nomeAutor1);
     autor2 = buscar(tabela, nomeAutor2);
 
+    if(autor1 == NULL || autor2 == NULL)
+        return 0;
+
     for(i =0; i < tabela->qtsArtigos; i++){
-        if(autor1->artigos[i] == autor2->artigos[i] != 0){
+        if(autor1->artigos[i] != 0 && autor2->artigos[i] != 0){
             return 1;
         }
     }
@@ -18,14 +26,15 @@ int haColaboracao(p_hash tabela, char* nomeAutor1, char* nomeAutor2){
 void inserirParticipacaoEmArtigo(p_autor autor,int numeroArtigo){
     autor->artigos[numeroArtigo]=1;
 }
-//refazer o destruir
+
 void processarAutor(p_hash tabela, char* nome,int numeroArtigo){
     int i;
     p_autor autor = buscar(tabela, nome);
     if(autor == NULL){
         autor = malloc(sizeof(Autor));
+        strcpy(autor->nome,nome);
         autor->artigos = malloc(sizeof(unsigned int)* tabela->qtsArtigos);
-        //inicializar esse vetor com 0 em tudo
+
         for(i=0; i < tabela->qtsArtigos; i++){
           autor->artigos[i] = 0;
         }
@@ -38,8 +47,8 @@ void processarAutor(p_hash tabela, char* nome,int numeroArtigo){
 void ler_artigos(p_hash hash, int artigos) {
     int i;
 
-    for(i = 1; i <= artigos; i++) {
-        char nome[17] = "\0", inicial, sobrenome[TAM_SBNM], separador;
+    for(i = 0; i < artigos; i++) {
+        char nome[17] = "\0", inicial, sobrenome[16], separador;
 
         while (separador != '.') {
             scanf(" %c. %[^.,]%c", &inicial, sobrenome, &separador);
@@ -51,17 +60,15 @@ void ler_artigos(p_hash hash, int artigos) {
 
             memset(nome, 0, 17);
         }
-
         separador = '0';
     }
 }
 
 void ler_consultas(p_hash hash, int consultas) {
     int i;
-    p_autor autor1, autor2;
 
-    for(i = 1; i <= consultas; i++) {
-        char nome1[17] = "\0", nome2[17] = "\0", inicial, sobrenome[TAM_SBNM], separador;
+    for(i = 0; i < consultas; i++) {
+        char nome1[17] = "\0", nome2[17] = "\0", inicial, sobrenome[16], separador;
 
         scanf(" %c. %[^.,]%c", &inicial, sobrenome, &separador);
 

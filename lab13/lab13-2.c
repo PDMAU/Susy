@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "hash.h"
 
 int haColaboracao(p_hash tabela, char* nomeAutor1, char* nomeAutor2){
@@ -41,7 +39,7 @@ void ler_artigos(p_hash hash, int artigos) {
     int i;
 
     for(i = 1; i <= artigos; i++) {
-        char nome[17] = "\0", inicial, sobrenome[17], separador;
+        char nome[17] = "\0", inicial, sobrenome[TAM_SBNM], separador;
 
         while (separador != '.') {
             scanf(" %c. %[^.,]%c", &inicial, sobrenome, &separador);
@@ -53,6 +51,7 @@ void ler_artigos(p_hash hash, int artigos) {
 
             memset(nome, 0, 17);
         }
+
         separador = '0';
     }
 }
@@ -62,7 +61,7 @@ void ler_consultas(p_hash hash, int consultas) {
     p_autor autor1, autor2;
 
     for(i = 1; i <= consultas; i++) {
-        char nome1[17] = "\0", nome2[17] = "\0", inicial, sobrenome[17], separador;
+        char nome1[17] = "\0", nome2[17] = "\0", inicial, sobrenome[TAM_SBNM], separador;
 
         scanf(" %c. %[^.,]%c", &inicial, sobrenome, &separador);
 

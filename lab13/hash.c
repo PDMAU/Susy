@@ -1,7 +1,9 @@
-#include "hash.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "hash.h"
+#define MAX 2048
 
 int hashPrincipal(char *chave) {
     int i, n = 0;
@@ -39,15 +41,16 @@ void inserir(p_hash t, char *chave, p_autor dado){
         t->vetor[n] = dado;
     }else{
         while(t->vetor[n] != NULL){
-            n += hashSecundario(chave) % MAX;
+            n = ((n+hashSecundario(chave)) % MAX);
         }
         t->vetor[n] = dado;
     }
 }
 p_autor buscar(p_hash t, char *chave){
     int n = hashPrincipal(chave);
-    while((t->vetor[n] != NULL )&& strcmp(t->vetor[n]->nome, chave) != 0 ){
-         n += hashSecundario(chave) % MAX;
+
+    while((t->vetor[n] != NULL )&& strcmp(chave, t->vetor[n]->nome) != 0 ){
+         n = ((n+hashSecundario(chave)) % MAX);
     }
     return t->vetor[n];
 }

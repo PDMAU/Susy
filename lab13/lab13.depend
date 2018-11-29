@@ -12,3 +12,16 @@
 	<stdlib.h>
 	"hash.h"
 
+1543453272 source:c:\users\mauri\desktop\susy\lab13\hash.c
+	"hash.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1543444424 c:\users\mauri\desktop\susy\lab13\hash.h
+
+1543453498 source:c:\users\mauri\desktop\susy\lab13\main.c
+	<stdio.h>
+	<stdlib.h>
+	"hash.h"
+
