@@ -17,8 +17,8 @@ void insere(p_fp fprio, Item item) {
     sobe_no_heap(fprio, fprio->n - 1);
 }
 
-void troca(int *a, int *b) {
-    int t = *a;
+void troca(Item *a, Item *b) {
+    Item t = *a;
     *a = *b;
     *b = t;
 }

@@ -9,8 +9,6 @@ int main() {
     int qtsCaixas, i, peso;
     p_fp max_heap;
     p_fp min_heap;
-    Item item;
-
 
     scanf("%d", &qtsCaixas);
 
@@ -18,6 +16,7 @@ int main() {
     min_heap = criar_filaprio(qtsCaixas);
 
     for(i = 0; i < qtsCaixas; i++) {
+        Item item;
         char produto[21];
         scanf("%s %d", produto, &peso);
         strcpy(item.nome, produto);
@@ -44,7 +43,7 @@ void inserirProduto(p_fp max_heap, p_fp min_heap, Item item){
          meio = pegarTopo(min_heap);
     }else if (min_heap->n > max_heap->n){
         meio = pegarTopo(min_heap);
-    }else if (max_heap->n > min_heap->n){
+    }else{
         meio = pegarTopo(max_heap);
     }
 
@@ -52,7 +51,7 @@ void inserirProduto(p_fp max_heap, p_fp min_heap, Item item){
         meio.chave = OPOSTO(meio.chave);
     }
 
-    if (item.chave > meio.chave){
+    if (item.chave >= meio.chave){
         item.chave = OPOSTO(item.chave);
         insere(min_heap, item);
     }else{
@@ -63,13 +62,13 @@ void inserirProduto(p_fp max_heap, p_fp min_heap, Item item){
 
 void balancear(p_fp max_heap, p_fp min_heap){
     Item item;
-    if (min_heap->n > max_heap->n+1 ) {
+    if (min_heap->n - max_heap->n > 1 ) {
         item = extrai_maximo(min_heap);
         item.chave = OPOSTO(item.chave);
         insere(max_heap, item);
     }
 
-    if (max_heap->n > min_heap->n+1) {
+    if (max_heap->n - min_heap->n > 1) {
         item = extrai_maximo(max_heap);
         item.chave = OPOSTO(item.chave);
         insere(min_heap, item);

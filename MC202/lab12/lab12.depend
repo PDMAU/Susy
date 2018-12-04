@@ -10,3 +10,14 @@
 1543892347 source:c:\users\mauri\desktop\susy\mc202\lab12\heap.c
 	"heap.h"
 
+1543947244 source:c:\users\santosg\desktop\susy\susy\mc202\lab12\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"heap.h"
+
+1543916994 c:\users\santosg\desktop\susy\susy\mc202\lab12\heap.h
+
+1543935032 source:c:\users\santosg\desktop\susy\susy\mc202\lab12\heap.c
+	"heap.h"
+
