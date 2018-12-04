@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1543073912 source:c:\users\joan\desktop\lab04\main.c
+	<stdio.h>
+	<stdlib.h>
+	<portfolio.h>
+	<acao.h>
+
+1543074343 c:\users\joan\desktop\lab04\\portfolio.h
+	"acao.h"
+
+1543073932 c:\users\joan\desktop\lab04\\acao.h
+	<string.h>
+
+1543072216 source:c:\users\joan\desktop\lab04\portfolio.c
+	<portfolio.h>
+
+1543074017 source:c:\users\joan\desktop\lab04\acao.c
+	<acao.h>
+
+1543694841 source:c:\users\mauri\desktop\susy\mc202\lab04\acao.c
+	"acao.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1543693968 c:\users\mauri\desktop\susy\mc202\lab04\acao.h
+	<string.h>
+
+1543693978 source:c:\users\mauri\desktop\susy\mc202\lab04\main.c
+	<stdio.h>
+	<stdlib.h>
+	"portfolio.h"
+	"acao.h"
+
+1543694018 c:\users\mauri\desktop\susy\mc202\lab04\portfolio.h
+	"acao.h"
+
+1543694374 source:c:\users\mauri\desktop\susy\mc202\lab04\lab04.c
+	<stdio.h>
+	<stdlib.h>
+	"portfolio.h"
+	"acao.h"
+
+1543694380 source:c:\users\mauri\desktop\susy\mc202\lab04\portfolio.c
+	"portfolio.h"
+	"acao.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+

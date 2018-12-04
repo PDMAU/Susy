@@ -1,7 +1,13 @@
+/*
+Nome: Maurilio dos Santos Gonçalves 
+RA:203648
+*/
 #include "universidade.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#define MIN_NOTA 10
+#define MAX_NOTA 0
 
 /*
     Cria um registro professor dinamicamente.
@@ -15,6 +21,9 @@
 */
 p_professor criarProfessor(char nome[], char sobrenome[], double salario, char disciplina[]) {
     p_professor professor = malloc(sizeof(Professor));
+    if(professor == NULL){
+        exit(1);
+    }
     strcpy(professor->nome, nome);
     strcpy(professor->sobrenome, sobrenome);
     strcpy(professor->disciplina, disciplina);
@@ -42,6 +51,9 @@ void destruirProfessor(p_professor professor) {
 */
 p_aluno criarAluno(char nome[], char sobrenome[]) {
     p_aluno aluno = malloc(sizeof(Aluno));
+    if(aluno == NULL){
+        exit(1);
+    }
     strcpy(aluno->nome, nome);
     strcpy(aluno->sobrenome, sobrenome);
     (aluno->qtd_disciplinas) = 0;
@@ -87,8 +99,8 @@ void obterNotasExtremas(p_aluno alunos[], int qtd_alunos, char disciplina[], dou
     int i,j;
     double nota;
 
-    double aux_min = 10;
-    double aux_max = 0;
+    double aux_min = MIN_NOTA;
+    double aux_max = MAX_NOTA;
     for(i=0; i < qtd_alunos; i++) {
         for(j=0; j < alunos[i]->qtd_disciplinas; j++) {
             if(strcmp(alunos[i]->disciplinas[j],disciplina) == 0) {

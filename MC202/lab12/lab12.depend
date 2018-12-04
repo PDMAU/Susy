@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1543893916 source:c:\users\mauri\desktop\susy\mc202\lab12\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"heap.h"
+
+1543892465 c:\users\mauri\desktop\susy\mc202\lab12\heap.h
+
+1543892347 source:c:\users\mauri\desktop\susy\mc202\lab12\heap.c
+	"heap.h"
+

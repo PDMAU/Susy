@@ -5,9 +5,10 @@ RA:203648
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define TAM_NOME 31
 
 typedef struct Participante{
-    char nome[31];
+    char nome[TAM_NOME];
     int telefone;
 }Participante;
 
@@ -21,8 +22,9 @@ Participante* aumentarTamanhoVetor(Participante* participantes, int tamanhoAtual
     int i;
     if(tamanhoAtual < aumentarPara){
         novoVetor = malloc(sizeof(Participante)*aumentarPara);
-        if(novoVetor == NULL)
-            return NULL;
+        if(novoVetor == NULL){
+            exit(1);
+        }
     }
     /*Move todos os participantes do vetor antigo para o novo*/
     for(i =0; i < tamanhoAtual; i++){
@@ -36,6 +38,9 @@ Participante* aumentarTamanhoVetor(Participante* participantes, int tamanhoAtual
 void ordenarVetor(Participante* participantes, int tamanho){
     int i, j;
     Participante* aux = malloc(sizeof(Participante));
+    if(aux == NULL){
+        exit(1);
+    }
     for(i =0; i < tamanho-1; i++){
         for(j =i+1; j < tamanho; j++){
             if(participantes[j].telefone < participantes[i].telefone){
@@ -45,18 +50,18 @@ void ordenarVetor(Participante* participantes, int tamanho){
             }
         }
     }
+    free(aux);
 }
 
 int main(){
-    Participante* participantes = malloc(sizeof(Participante)*4);
-    Participante* aux           = malloc(sizeof(Participante));
-    char palavra[31];/*String q pode representar tanto um nome, quanto o comando "fim" q faz o programa ser encerrado*/
+    Participante* participantes = malloc(sizeof(Participante)*4); 
+    char palavra[TAM_NOME];/*String q pode representar tanto um nome, quanto o comando "fim" q faz o programa ser encerrado*/
     int numero,/*numero pode representar tanto um numero de telefone, quanto o numero do participante sorteado*/
         numeroParticipantes = 0,
-        tamanhoVetor        = 4;
+        tamanhoVetor        = 4;        
 
     if(participantes == NULL){ /*caso nao exista espaço disponivel*/
-        return 1;
+        exit(1);
     }
 
     while(1){
@@ -69,13 +74,9 @@ int main(){
         }else{ /*else desnecessario mas facilita a leitura do codigo*/
             numeroParticipantes++;
             if(numeroParticipantes > tamanhoVetor){
-                aux = aumentarTamanhoVetor(participantes, tamanhoVetor,tamanhoVetor *2);
-                if(aux == NULL){/*caso nao exista espaço disponivel*/
-                    return 1;
-                }
                 tamanhoVetor *=2;
-                participantes = aux;
-            }/*poderia usar o copiarParticipante, mas teria que usar o aux, oq eh uma trabalho desnecessario*/
+                participantes = aumentarTamanhoVetor(participantes, tamanhoVetor,tamanhoVetor *2);
+            }
             strcpy(participantes[numeroParticipantes-1].nome, palavra);
             participantes[numeroParticipantes-1].telefone = numero;
         }
