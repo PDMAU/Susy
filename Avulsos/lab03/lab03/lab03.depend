@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1560303097 source:/l/disk0/santosg/Documentos/Susy/Avulsos/lab03/lab03/main.c
+	<stdio.h>
+	<stdlib.h>
+	"estoque.h"
+
+1560368784 source:/l/disk0/santosg/Documentos/Susy/Avulsos/lab03/lab03/data.c
+	"data.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1560295557 /l/disk0/santosg/Documentos/Susy/Avulsos/lab03/lab03/data.h
+
+1560303161 source:/l/disk0/santosg/Documentos/Susy/Avulsos/lab03/lab03/estoque.c
+	"estoque.h"
+	"produto.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1559780377 /l/disk0/santosg/Documentos/Susy/Avulsos/lab03/lab03/estoque.h
+	"produto.h"
+
+1560295560 /l/disk0/santosg/Documentos/Susy/Avulsos/lab03/lab03/produto.h
+	<string.h>
+	"data.h"
+
+1560368468 source:/l/disk0/santosg/Documentos/Susy/Avulsos/lab03/lab03/produto.c
+	"produto.h"
+	"data.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+

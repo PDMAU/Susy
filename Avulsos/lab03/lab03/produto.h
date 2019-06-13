@@ -1,6 +1,6 @@
 #ifndef PRODUTO_H
 #define PRODUTO_H
-
+#include <string.h>
 #include "data.h"
 
 #define MAX_NOME_PRODUTO 21

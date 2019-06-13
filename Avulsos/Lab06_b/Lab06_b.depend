@@ -11,3 +11,15 @@
 	<stdio.h>
 	<stdlib.h>
 
+1559780377 source:/l/disk0/santosg/Documentos/Susy/Avulsos/Lab06_b/lista.c
+	"lista.h"
+	<stdio.h>
+	<stdlib.h>
+
+1559780377 /l/disk0/santosg/Documentos/Susy/Avulsos/Lab06_b/lista.h
+
+1559780377 source:/l/disk0/santosg/Documentos/Susy/Avulsos/Lab06_b/main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+

@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1560382857 source:/l/disk0/santosg/Documentos/Susy/MC202_2/la10/lab010/main.c
+	<stdio.h>
+	<stdlib.h>
+	"fila_de_prioridade.h"
+
+1560382913 /l/disk0/santosg/Documentos/Susy/MC202_2/la10/lab010/fila_de_prioridade.h
+
