@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1561313502 source:c:\users\mauri\desktop\repo_susy\susy\mc202_2\lab08\lab08\main.c
+	<stdio.h>
+	<stdlib.h>
+	"arvore.h"
+
+1561170763 c:\users\mauri\desktop\repo_susy\susy\mc202_2\lab08\lab08\arvore.h
+
+1561170734 source:c:\users\mauri\desktop\repo_susy\susy\mc202_2\lab08\lab08\arvore.c
+	<stdio.h>
+	<stdlib.h>
+	"arvore.h"
+
