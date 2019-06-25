@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1560818475 source:/l/disk0/santosg/Documentos/Susy/MC202_2/lab06/lista.c
+	"lista.h"
+	<stdio.h>
+	<stdlib.h>
+
+1559780377 /l/disk0/santosg/Documentos/Susy/MC202_2/lab06/lista.h
+
+1560819066 source:/l/disk0/santosg/Documentos/Susy/MC202_2/lab06/main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
